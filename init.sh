@@ -6,8 +6,7 @@ su -c "yum install jenkins"
 
 if [ ! $(rpm -qa | grep -qw "openssh") ] && [ ! $(rpm -qa | grep -qw "openssh-server") ]
 then
-  su -c "yum install openssh"
-  su -c "yum install openssh-server"
+  su -c "yum install openssh openssh-server"
   su -c "ssh-keygen -A"
   su -c "echo \"Port 1488\" >> /etc/ssh/sshd_config"
 fi
